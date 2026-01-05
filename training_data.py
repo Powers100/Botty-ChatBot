@@ -1,0 +1,15 @@
+training_data = [
+    ("hello", "greeting"),
+    ("hi", "greeting"),
+    ("hey there", "greeting"),
+    ("goodbye", "farewell"),
+    ("bye", "farewell"),
+    ("see you later", "farewell"),
+    ("what time is it", "time"),
+    ("tell me the time", "time"),
+    ("what's the weather", "weather"),
+    ("what is the weather like", "weather"),
+    ("weather today", "weather"),
+    ("weather in new york", "weather"),
+    ("how's the weather in london", "weather"),
+]
