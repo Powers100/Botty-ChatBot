@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+    <div class="chat-wrapper">
+        <header class="chat-header">
+            <div class="title-row">
+                <h2>Botty Chatbot</h2>
+                <span class="info-icon" title="Chatbot is running. Type 'retrain' to retrain model.">i</span>
+            </div>
+                <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+                    <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <!-- Moon icon -->
+                        <path id="moon" d="M21 12.79A9 9 0 0111.21 3 7 7 0 0012 21a9 9 0 009-8.21z"/>
+                        <!-- Sun icon -->
+                        <g id="sun" style="display:none">
+                            <circle cx="12" cy="12" r="4"/>
+                            <!-- vertical -->
+                            <line x1="12" y1="3" x2="12" y2="5"/>
+                            <line x1="12" y1="19" x2="12" y2="21"/>
+                            <!-- horizontal -->
+                            <line x1="3" y1="12" x2="5" y2="12"/>
+                            <line x1="19" y1="12" x2="21" y2="12"/>
+                            <!-- diagonal -->
+                            <!-- top-left -->
+                            <line x1="5.25" y1="5.25" x2="6.75" y2="6.75"/>
+                            <!-- top-right -->
+                            <line x1="17.25" y1="6.75" x2="18.75" y2="5.25"/>
+                            <!-- bottom-left -->
+                            <line x1="5.25" y1="18.75" x2="6.75" y2="17.25"/>
+                            <!-- bottom-right -->
+                            <line x1="18.75" y1="18.75" x2="17.25" y2="17.25"/>
+                        </g>
+                    </svg>
+                </button>
+
+            <div id="info-text" class="info-text">
+                Chatbot is running. Type <strong>'retrain'</strong> to retrain model.
+            </div>
+        </header>
+
+        <div id="chat-box" class="chat-box"></div>
+
+        <div class="chat-input">
+            <input 
+                id="user-input" 
+                placeholder="Type a message..." 
+                autocomplete="off"
+                onkeydown="if(event.key === 'Enter') sendMessage()"
+            />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="/static/chat.js"></script>
+
+    <script>
+        window.addEventListener("beforeunload", () => {
+            socket.disconnect();
+        });
+    </script>
+
+</body>
+</html>
