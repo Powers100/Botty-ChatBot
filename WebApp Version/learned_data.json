@@ -1,0 +1,64 @@
+{
+  "training_data": [
+    [
+      "what is your name?",
+      "name"
+    ],
+    [
+      "what do they call you?",
+      "name"
+    ],
+    [
+      "name",
+      "name"
+    ],
+    [
+      "name",
+      "name"
+    ],
+    [
+      "how are you?",
+      "good-feeling"
+    ],
+    [
+      "how are you?",
+      "good-feeling"
+    ],
+    [
+      "what time is it",
+      "time"
+    ],
+    [
+      "time",
+      "time"
+    ],
+    [
+      "what's the time",
+      "time"
+    ],
+    [
+      "weahter in mexico city mexico",
+      "weather"
+    ],
+    [
+      "jfkae;f",
+      "good-feeling"
+    ],
+    [
+      "time",
+      "time"
+    ]
+  ],
+  "responses": {
+    "name": [
+      "My name is Botty!",
+      "They call me Botty!",
+      "Botty!",
+      "The name's Botty!"
+    ],
+    "good-feeling": [
+      "I'm doing good!",
+      "I'm great!"
+    ]
+  }
+}
