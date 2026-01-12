@@ -1,0 +1,300 @@
+/* Reset & base styles */
+* {
+    box-sizing: border-box;
+    font-family:
+        "Plus Jakarta Sans",
+        "Plus Jakarta Sans Fallback",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        "Helvetica Neue",
+        Arial,
+        "Noto Sans",
+        sans-serif;
+        }
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Layout */
+.chat-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header */
+.chat-header {
+    background: var(--header-bg);
+    color: var(--header-text);
+    padding: 12px 10px;
+}
+
+.title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chat-header h2 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.status {
+    margin-top: 4px;
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* Info icon */
+.info-icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--info-bg);
+    color: var(--info-text);
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 18px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.info-icon:hover {
+    background: var(--info-hover);
+}
+
+/* Hidden info text */
+.info-text {
+    display: none;
+    margin-top: 6px;
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* Chat box */
+.chat-box {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    background: var(--chat-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Message bubbles */
+.chat-box .you,
+.chat-box .bot {
+    max-width: 75%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.chat-box .you {
+    align-self: flex-end;
+    background: var(--user-msg);
+    color: var(--user-text);
+}
+
+.chat-box .bot {
+    align-self: flex-start;
+    background: var(--bot-msg);
+    color: var(--bot-text);
+}
+
+/* Input area */
+.chat-input {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    border-top: 1px solid var(--input-border);
+    background: var(--input-bg);
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--input-border);
+    background: var(--input-field-bg);
+    color: var(--text);
+    outline: none;
+}
+
+.chat-input input::placeholder {
+    color: var(--placeholder);
+}
+
+.chat-input button {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    background: var(--button-bg);
+    color: var(--msg-button-text);
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.chat-input button:hover {
+    background: var(--button-hover);
+}
+
+/* Scroll bar */
+.poem {
+  overflow: scroll;
+  scrollbar-color: var(--button-bg) var(--bg);
+  scrollbar-width: thin;
+}
+
+.poem::-webkit-scrollbar {
+  width: 8px;            /* width of vertical scrollbar */
+  height: 8px;           /* height of horizontal scrollbar */
+}
+
+.poem::-webkit-scrollbar-track {
+  background: var(--bg);   /* track color */
+  border-radius: 4px;
+}
+
+.poem::-webkit-scrollbar-thumb {
+  background-color: var(--button-bg); /* thumb color */
+  border-radius: 4px;
+  border: 2px solid var(--bg); /* optional padding around thumb */
+}
+
+.poem::-webkit-scrollbar-thumb:hover {
+  background-color: #909090; /* thumb hover effect */
+}
+
+/* Scrollbar for chat box */
+#chat-box {
+    overflow-y: auto;             /* Make it scrollable vertically */
+    scrollbar-width: thin;        /* Firefox */
+    scrollbar-color: var(--button-bg) var(--bg); /* thumb color, track color */
+}
+
+/* Webkit browsers: Chrome, Edge, Safari */
+#chat-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+#chat-box::-webkit-scrollbar-track {
+    background: #020414;
+    border-radius: 4px;
+}
+
+#chat-box::-webkit-scrollbar-thumb {
+    background-color: var(--button-bg);
+    border-radius: 4px;
+    border: 2px solid var(--bg);  /* optional padding around thumb */
+}
+
+#chat-box::-webkit-scrollbar-thumb:hover {
+    background-color: var(--button-bg);
+}
+
+#theme-toggle {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 1000;
+    z-index: 1000;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: none;
+    background: var(--theme-button-bg);
+    color: var(--msg-button-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.05);
+    background: var(--button-hover);
+}
+
+#theme-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* ========================= */
+/* THEME VARIABLES           */
+/* ========================= */
+
+/* Dark mode (default) */
+:root {
+    --bg: #020414;
+    --chat-bg: #020414;
+    --header-bg: #1e2029;
+    --header-text: #ffffff;
+
+    --text: #ffffff;
+    --placeholder: #6a6b72;
+
+    --bot-msg: #1f2937;
+    --bot-text: #ffffff;
+
+    --user-msg: #00e5ff;
+    --user-text: #000000;
+
+    --input-bg: #020414;
+    --input-field-bg: #1e2029;
+    --input-border: #1e2029;
+
+    --button-bg: #00e5ff;
+    --button-hover: #72ebff;
+    --msg-button-text: #000000;
+
+    --theme-button-bg: #00e5ff;
+
+    --info-bg: rgb(94, 94, 94);
+    --info-text: #d1d1d1;
+    --info-hover: #ffffff;
+}
+
+/* Light mode */
+body.light {
+    --bg: #f0f4f8;               
+    --chat-bg: #ffffff;          
+    --header-bg: #5544f7;        
+    --header-text: #ffffff;      
+    --text: #000000;              
+    --placeholder: #6b7280;       
+
+    --bot-msg: #e5f6ff;          
+    --bot-text: #020414;          
+
+    --user-msg: #5544f7;          
+    --user-text: #ffffff;         
+
+    --input-bg: #ffffff;           
+    --input-field-bg: #f0f4f8;     
+    
+    --input-border: #cecece;     
+
+    --button-bg: #5544f7;        
+    --button-hover: #7158f9;      
+    --msg-button-text: #ffffff;    
+
+    --theme-button-bg: #0F056C;    
+
+    --info-bg: rgb(103, 103, 103);
+    --info-text: #d1d1d1;
+    --info-hover: #ffffff;
+}
